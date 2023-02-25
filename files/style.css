@@ -303,7 +303,7 @@ background-position: 20%;
 	top:0px;
 	position: fixed;
 	width: 100%;
-	z-index: 7;
+	z-index: 8;
 	/*box-shadow: 10px 6px 5px 0 rgba(80, 88, 97, 0.6);*/
 	
 	white-space: nowrap;
@@ -311,10 +311,17 @@ background-position: 20%;
 .fixed_menu_container {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .top_part_logo {
 	color: black;
+}
+
+.brand_logo_text {
+	margin-block-start: 0em;
+    margin-block-end: 0em;
+	text-align: center;
 }
 
 
@@ -336,12 +343,63 @@ background-position: 20%;
 	display: block;
 }
 
+.bar1, .bar2, .bar3 {
+    transition: 0.4s;
+	background-color: black;
+	border-radius: 5px;
+}
+
+.navicon_button {
+	position: relative;
+}
+
+.navicon_button_click {
+	position: relative;
+	z-index: 100;
+}
+
+
+
 
 
 @media only screen and (max-width: 350px) {
+	
+	.bar1, .bar2, .bar3 {
+		width: 20px;
+		height: 3px;
+	}
+	
+	.bar2 {
+		margin-top: 3px !important;
+		margin-bottom: 3px !important;
+	}
+
+	.navicon_button_click {
+		padding: 10px;
+		margin: 0px !important;
+		height: 20px;
+	}
+	
+	.navicon_button {
+		top: 3px;
+	}
+
+
+	.navi_change .bar1 {
+		-webkit-transform: rotate(-45deg) translate(-4px, 4px);
+		transform: rotate(-45deg) translate(-4px, 4px);
+	}
+
+	.navi_change .bar2 {opacity: 0;}
+
+	.navi_change .bar3 {
+		-webkit-transform: rotate(45deg) translate(-5px, -4px);
+		transform: rotate(45deg) translate(-5px, -4px);
+	}
+	
 	.fixed_menu a {
 		font-size: 13px;
-		margin: 6px 1px;
+		margin: 9px 1px;
 	}
 	.fixed_menu {
 		height: 50px;
@@ -354,11 +412,10 @@ background-position: 20%;
 	.fixed_menu_container {
 		margin-left: 2px;
 		margin-right: 2px;
-		margin-top: 6px;
+		margin-top: 0px;
 	}
 	
 	.top_part_logo {
-		height: 30px;
 		width: 80px;
 		font-size: 15px;
 	}
@@ -404,9 +461,44 @@ background-position: 20%;
 }
 
 @media only screen and (max-width: 600px) and (min-width: 351px){
+	
+	.bar1, .bar2, .bar3 {
+		width: 24px;
+		height: 4px;
+	}
+	
+	.bar2 {
+		margin-top: 4px !important;
+		margin-bottom: 4px !important;
+	}
+
+	.navicon_button_click {
+		padding: 10px;
+		margin: 0px !important;
+		height: 24px;
+	}
+	
+	.navicon_button {
+		top: 2px;
+	}
+
+
+
+	.navi_change .bar1 {
+		-webkit-transform: rotate(-45deg) translate(-6px, 6px);
+		transform: rotate(-45deg) translate(-6px, 6px);
+	}
+
+	.navi_change .bar2 {opacity: 0;}
+
+	.navi_change .bar3 {
+		-webkit-transform: rotate(45deg) translate(-6px, -5px);
+		transform: rotate(45deg) translate(-6px, -5px);
+	}
+	
 	.fixed_menu a {
 		font-size: 15px;
-		margin: 6px 8px;
+		margin: 9px 8px;
 	}
 	.fixed_menu {
 		height: 50px;
@@ -423,7 +515,6 @@ background-position: 20%;
 	}
 	
 	.top_part_logo {
-		height: 30px;
 		width: 80px;
 		font-size: 15px;
 	}
@@ -472,9 +563,43 @@ background-position: 20%;
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1000px) {/*1000px TEN SONRA ÇALIŞIR VE 601PX DE DURUR*/
+
+	.bar1, .bar2, .bar3 {
+		width: 28px;
+		height: 5px;
+	}
+	
+	.bar2 {
+		margin-top: 5px !important;
+		margin-bottom: 5px !important;
+	}
+
+	.navicon_button_click {
+		padding: 15px;
+		margin: 0px !important;
+		height: 28px;
+	}
+	
+	.navicon_button {
+		top: 2px;
+	}
+
+
+	.navi_change .bar1 {
+		-webkit-transform: rotate(-45deg) translate(-7px, 8px);
+		transform: rotate(-45deg) translate(-7px, 8px);
+	}
+
+	.navi_change .bar2 {opacity: 0;}
+
+	.navi_change .bar3 {
+		-webkit-transform: rotate(45deg) translate(-7px, -7px);
+		transform: rotate(45deg) translate(-7px, -7px);
+	}
+	
 	.fixed_menu a {
 		font-size: 17px;
-		margin: 6px 8px;
+		margin: 13px 8px;
 	}
 	
 	.fixed_menu {
@@ -493,7 +618,6 @@ background-position: 20%;
 	}
 	
 	.top_part_logo {
-		height: 40px;
 		width: 120px;
 		font-size: 20px;
 	}
@@ -549,6 +673,41 @@ background-position: 20%;
 }
 
 @media only screen and (min-width: 1001px) { 
+
+	.bar1, .bar2, .bar3 {
+		width: 39px;
+		height: 7px;
+	}
+	
+	.bar2 {
+		margin-top: 7px !important;
+		margin-bottom: 7px !important;
+	}
+	
+	.navicon_button_click {
+		padding: 20px;
+		margin: 0px !important;
+		height: 39px;
+	}
+	
+	.navicon_button {
+		top: 2px;
+	}
+
+
+
+	.navi_change .bar1 {
+		-webkit-transform: rotate(-45deg) translate(-10px, 11px);
+		transform: rotate(-45deg) translate(-10px, 11px);
+	}
+
+	.navi_change .bar2 {opacity: 0;}
+
+	.navi_change .bar3 {
+		-webkit-transform: rotate(45deg) translate(-9px, -9px);
+		transform: rotate(45deg) translate(-9px, -9px);
+	}
+
 	.fixed_menu_container {
 		margin-left: 50px;
 		margin-right: 50px;
@@ -573,12 +732,8 @@ background-position: 20%;
 	}
 	
 	.top_part_logo {
-		height: 50px;
 		width: 150px;
 		font-size: 22px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 	
 	.icon_top_div {
@@ -621,6 +776,8 @@ background-position: 20%;
     1px 30px 60px rgba(16,16,16,0.4);
 	}
 }
+
+
 
 
 
@@ -956,54 +1113,6 @@ input[type="text"] {
 	display: none;
 }
 
-.navicon_button_container {
-	padding-top: 48px;
-	    padding-left: 3px;
-		
-}
-
-.bar1, .bar2, .bar3 {
-  width: 39px;
-  height: 6px;
-  background-color: black;
-  margin: 8px 0;
-  transition: 0.4s;
-  border-radius: 2px;
-}
-
-.navicon_button_click {
-	height: 47px;
-    width: 47px;
-	padding: 20px;
-	margin: 0px !important;
-}
-
-/*background-image: url("https://static.moooi.com/static/images/nav-button.png");*/
-.navi_change .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-12px, 10px);
-  transform: rotate(-45deg) translate(-12px, 10px);
-}
-
-.navi_change .bar2 {opacity: 0;}
-
-.navi_change .bar3 {
-  -webkit-transform: rotate(45deg) translate(-9px, -6px);
-  transform: rotate(45deg) translate(-9px, -6px);
-}
-
-.navi_change_2 .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-9px, 8px);
-  transform: rotate(-45deg) translate(-9px, 8px);
-}
-
-.navi_change_2 .bar2 {opacity: 0;}
-
-.navi_change_2 .bar3 {
-  -webkit-transform: rotate(45deg) translate(-7px, -5px);
-  transform: rotate(45deg) translate(-7px, -5px);
-}
-
-
 
 /*.home_button {
 	padding-top: 2px; 
@@ -1108,7 +1217,7 @@ input[type="text"] {
 .img_slogan {
 	position: absolute;
 	z-index: 2;
-	width: calc(100vw - 14.5px);
+	width: 100%;
 }
 
 .img_slogan_container {
@@ -1177,7 +1286,7 @@ input[type="text"] {
 	background-color: none;
 	position: relative;
 	top: -25px;
-	width: calc(100vw - 14.5px);
+	width: 100%;
 	float: right;
 	z-index: 7;
 	/*border: 2px solid black;*/
@@ -1270,6 +1379,21 @@ input[type="text"] {
 	height: 6px;
 	/*background-color: #a9ad93;*/
 	border: 2px solid black;
+}
+
+.container_enter {
+	display: block;	
+	position: relative;
+	z-index: 2;
+	height: 100vh;
+	width: 100%;
+	overflow: hidden;
+}
+
+.container_enter_photo {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
 }
 
 .container_0 {
