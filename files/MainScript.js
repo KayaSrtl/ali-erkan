@@ -35,53 +35,7 @@ var swiper_animation_finished = false;
 $( document ).ready(function() {
 	//$('.top_button').draggable();
 	//do something after document all loaded
-		var mySwiper = new Swiper('.swiper-container', {
-	on: {
-			slideNextTransitionEnd: (swiper) => {
-				console.log('SWIPED RIGHT');
-				mySwiper.slideTo(1);
-				if(swiper_animation_finished) {
-					transRight();
-					swiper_animation_finished = false;
-				} else
-					swiper_animation_finished = true;
-					
-				/*if(!trans_click_pressed) {
-					if(current_active_index == mySwiper.slides.length - 1)
-						current_active_index = 0;
-					else
-						current_active_index++;
-				}
-				trans_click_pressed = false;
-				//new_active_index = current_active_index;//mySwiper.activeIndex;
-				changeTransClick(old_active_index, current_active_index);
-				old_active_index = current_active_index;*/
-			},
-			slidePrevTransitionEnd: (swiper) => {
-				console.log('SWIPED LEFT');
-				mySwiper.slideTo(1);
-				if(swiper_animation_finished) {
-					transLeft();
-					swiper_animation_finished = false;
-				} else
-					swiper_animation_finished = true;
-				/*if(!trans_click_pressed) {
-					if(current_active_index == 0)
-						current_active_index = mySwiper.slides.length - 1;
-					else
-						current_active_index--;
-				}
-				trans_click_pressed = false;
-				//new_active_index = current_active_index;//mySwiper.activeIndex;
-				changeTransClick(old_active_index, current_active_index);
-				old_active_index = current_active_index;*/
-			}
-		},
-	});
 	
-	mySwiper.slideTo(1);
-	
-	//mySwiper.slideTo(5);
 	
 	$( ".trans_click" ).hover(function() {
 		if(!$(this).hasClass('selected'))
@@ -91,8 +45,13 @@ $( document ).ready(function() {
 	});
 	
 	/*
+	var is_go_top_ani_start = false;
 	$('div.top_button').click(function() {
-		$('html, body').animate({scrollTop: '0'}, 400);
+		if(!is_go_top_ani_start) {
+			$('html, body').animate({scrollTop: '0'}, 400);
+			is_go_top_ani_start = true;
+			setTimeout(function() { is_go_top_ani_start = false}, 400);
+		}
 	});*/
 	
 	
@@ -103,7 +62,6 @@ $( document ).ready(function() {
 		if (is_menu_open) {
 			$(".menu_button_bottom").text("Menu");
 			$(".navicon_button_click").removeClass('navi_change');
-			$(".navicon_button_click").removeClass('navi_change_2');
 			$('.menu_contact').animate({left: '-300px'}, 250);
 			$(".close_nav").fadeOut(250);
 			$(".my-search-box").val("");
@@ -111,15 +69,19 @@ $( document ).ready(function() {
 		}
 		else {
 			$(".menu_button_bottom").text("Close");
-			$(".navicon_button_click").addClass(window_width > 800 ? 'navi_change' : 'navi_change_2');
+			$(".navicon_button_click").addClass('navi_change');
 			$('.menu_contact').animate({left: '0px'}, 250);
 			$(".close_nav").fadeIn(250);
-			$('.my-search-box').focus();
+			if (!is_mobile_phone)
+				$('.my-search-box').focus();
 			is_scrolling_locked_menu_nav = true;
 			lastScrollTop_stop_scroll = $(window).scrollTop();
 		}
-		is_menu_open = !is_menu_open;
+		setTimeout(function() { is_menu_open = !is_menu_open;}, 250);
+		
 	});
+	
+	
 	var isNotifiOpen = false;
 	$('.notification_bell, .close_notifi').click(function() {
 		if (isNotifiOpen) {
@@ -447,67 +409,6 @@ $(window).scroll(function(event){
 	lastScrollTop = st;
 });
 
-
-
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-
-  // Create an array of slides
-  var slides = [
-    {
-      image: 'slide1.jpg',
-      text: 'Slide 1'
-    },
-    {
-      image: 'slide2.jpg',
-      text: 'Slide 2'
-    },
-    {
-      image: 'slide3.jpg',
-      text: 'Slide 3'
-    }
-  ];
-
-  // Create a function to display the slides
-  function displaySlides() {
-    // Get the current slide
-    var currentSlide = slides[currentIndex];
-
-    // Update the image and text
-    $('#slider-image').attr('src', currentSlide.image);
-    $('#slider-text').text(currentSlide.text);
-  }
-
-  // Create a variable to keep track of the current slide
-  var currentIndex = 0;
-
-  // Display the first slide
-  displaySlides();
-
-  // Handle the swipe events
-  $('#slider').on('swipeleft', function() {
-    currentIndex++;
-
-    // If we're at the end of the slides, start over
-    if (currentIndex >= slides.length) {
-      currentIndex = 0;
-    }
-
-    displaySlides();
-  });
-
-  $('#slider').on('swiperight', function() {
-    currentIndex--;
-
-    // If we're at the beginning of the slides, go to the end
-    if (currentIndex < 0) {
-      currentIndex = slides.length - 1;
-    }
-
-    displaySlides();
-  });
-
-}
-
 /*
 window.onscroll = function(e) {
 	//alert(this.oldScroll > this.scrollY);
@@ -803,16 +704,6 @@ function beReadyPage () {
 		//$(".home_button").css("padding-top", 2);
 		//$(".home_button").css("padding-bottom", 11);
 		//$(".menu_contact").css("bottom", 160);
-		$(".navicon_button_container").css("padding-top", is_mini_active ? 65:54);
-		$(".bar1, .bar2, .bar3 ").css("width", 39);
-		$(".bar1, .bar2, .bar3 ").css("height", 6);
-		$(".bar1, .bar2, .bar3 ").css("border-radius", 5);
-		$(".bar1, .bar2, .bar3 ").css("margin-top", 7);
-		$(".bar1, .bar2, .bar3 ").css("margin-bottom", 7);
-		if($(".navicon_button_click").hasClass('navi_change_2')) {
-			$(".navicon_button_click").removeClass('navi_change_2');
-			$(".navicon_button_click").addClass('navi_change');
-		}
 		
 		
 	} else {
@@ -830,13 +721,6 @@ function beReadyPage () {
 		//$(".fixed_menu a:not(.contect a, .navicon_button_click, .home_button)").css("background-color", "white");
 		//$(".fixed_menu a:not(.contect a, .navicon_button_click, .home_button)").css("display", "block");
 		//$(".menu_contact").css("bottom", 130);
-		$(".navicon_button_container").css("padding-top", 54);
-		$(".bar1, .bar2, .bar3 ").css("width", 30);
-		$(".bar1, .bar2, .bar3 ").css("height", 5);
-		$(".bar1, .bar2, .bar3 ").css("border-radius", 5);
-		$(".bar1, .bar2, .bar3 ").css("margin-top", 5);
-		$(".bar1, .bar2, .bar3 ").css("margin-bottom", 5);
-		is_mini_active = true;
 		/*if(navicon_button_click_control) {
 			$(".close_nav").css("display", "none");
 			$(".fixed_menu a:not(.contect a, .navicon_button_click, .home_button)").css("left", -150);
@@ -845,15 +729,11 @@ function beReadyPage () {
 			$(".close_nav").css("display", "block");
 			$(".fixed_menu a:not(.contect a, .navicon_button_click, .home_button)").css("left", 0);
 		}*/
-		$(".navicon_button_click").css("display", "inline-block");
+		//$(".navicon_button_click").css("display", "inline-block");
 		//$(".home_button").css("top", -10);
 		//$(".home_button").css("display", "inline-block");
 		//$(".home_button").css("padding-top", 3);
 		//$(".home_button").css("padding-bottom", 9);
-		if($(".navicon_button_click").hasClass('navi_change')) {
-			$(".navicon_button_click").addClass('navi_change_2');
-			$(".navicon_button_click").removeClass('navi_change');
-		}
 	}
 	/*
 	if(window_width > 1700) {
@@ -921,7 +801,7 @@ function beReadyPage () {
 	
 }
 
-
+/*
 
 function transLeft() {
 	if(transNum == 1) {
@@ -963,20 +843,15 @@ function changePhoto(eleNum) {
 
 
 
-function changeImgg() {
-	if(is_change_on_going && !is_trans_button_clicked)
-		transImg(transNum+1);
-	is_trans_button_clicked = false;
-}*/
 
-setTimeout(function() { changeImgg(); }, 5000);
+//setTimeout(function() { changeImgg(); }, 5000);
 
 function changeImgg() {
 	if(is_change_on_going && !is_trans_button_clicked)
 		transImg(transNum+1);
 	is_trans_button_clicked = false;
 	setTimeout(function() { changeImgg(); }, 5000);
-}
+}*/
 
 setTimeout(function() { beReadyPage();}, 200);
 setTimeout(function() { beReadyPage();}, 500);
