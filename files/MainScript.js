@@ -24,6 +24,7 @@ var is_trans_button_clicked = false;
 var ofsets_scroll = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var window_height;
 var window_width;
+var st;
 var is_mobile_phone = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) ? true : false;
 var swiper_animation_finished = false;
 //http://css3.bradshawenterprises.com/cfimg/#cfimg1
@@ -62,7 +63,7 @@ $( document ).ready(function() {
 		if (is_menu_open) {
 			$(".menu_button_bottom").text("Menu");
 			$(".navicon_button_click").removeClass('navi_change');
-			$('.menu_contact').animate({left: '-300px'}, 250);
+			$('.menu_contact').animate({left: '-370px'}, 250);
 			$(".close_nav").fadeOut(250);
 			$(".my-search-box").val("");
 			is_scrolling_locked_menu_nav = false;
@@ -72,8 +73,9 @@ $( document ).ready(function() {
 			$(".navicon_button_click").addClass('navi_change');
 			$('.menu_contact').animate({left: '0px'}, 250);
 			$(".close_nav").fadeIn(250);
-			if (!is_mobile_phone)
+			if (!is_mobile_phone) {
 				$('.my-search-box').focus();
+			}
 			is_scrolling_locked_menu_nav = true;
 			lastScrollTop_stop_scroll = $(window).scrollTop();
 		}
