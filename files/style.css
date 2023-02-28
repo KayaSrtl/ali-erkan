@@ -1463,6 +1463,14 @@ input[type="text"] {
 	display: flex;
 	align-items: center;
     justify-content: center;
+	flex-direction: column;
+}
+
+.calender_header { 
+	color: black;
+	font-size: 120px;
+	margin-block-start: 0.2em;
+    margin-block-end: 0.2em;
 }
 
 
@@ -1990,6 +1998,10 @@ input[type="text"] {
 	
 	.maps_cont {
 		height: 400px;
+	}
+	
+	.contect_part {
+		height: calc(100vh - 49px);
 	}
 }
 
