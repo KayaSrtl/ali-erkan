@@ -22,8 +22,8 @@ var lastScrollTop_stop_scroll;
 var is_change_on_going = true;
 var is_trans_button_clicked = false;
 var ofsets_scroll = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-var window_height;
-var window_width;
+var window_height, window_width;
+var selected_nav_class_number = 0;
 var st;
 var is_mobile_phone = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) ? true : false;
 var swiper_animation_finished = false;
@@ -36,13 +36,17 @@ var swiper_animation_finished = false;
 $( document ).ready(function() {
 	//$('.top_button').draggable();
 	//do something after document all loaded
-	
+	beReadyPage();
 	
 	$( ".trans_click" ).hover(function() {
 		if(!$(this).hasClass('selected'))
 			$(this).addClass('hover_trans_click');
 	}, function() {
 		$(this).removeClass('hover_trans_click');
+	});
+	
+	$( ".nav-link" ).click(function() {
+		$('html, body').animate({scrollTop: $(this).attr('id')*window_height}, 400);
 	});
 	
 	/*
@@ -57,7 +61,7 @@ $( document ).ready(function() {
 	
 	
 	
-	$('.navicon_button_click, .close_nav, .search_part_a').click(function() {
+	$('.navicon_button_click, .close_nav, .search_part_a, .nav-link').click(function() {
 		var window_height = parseInt($( window ).height());
 		var window_width = parseInt($( window ).width());
 		if (is_menu_open) {
@@ -293,6 +297,18 @@ $(window).scroll(function(event){
 	
 	var st = $(this).scrollTop();
 	
+	if( st < window_height) {
+		var filterVal = 'blur(' + (st / window_height)*10 + 'px)';
+		$('.container_enter_image_part')
+			.css('filter',filterVal)
+			.css('webkitFilter',filterVal)
+			.css('mozFilter',filterVal)
+			.css('oFilter',filterVal)
+			.css('msFilter',filterVal);
+	}
+	
+
+	/*
 	//$('div').css({"-webkit-transform":"translate(100px,100px)"});​
 	//$(".img_slogan").text(parseInt($( ".container_0" ).height()) + ' ' + (parseInt($( ".container_0" ).height())+window_height*2) + ' ' + st);
 	//var distance = (($('.container_1_cont').offset().top - window_height) < st);
@@ -387,7 +403,7 @@ $(window).scroll(function(event){
 			//
 	}
 
-
+	*/
 		// not: iki window_height boyunca top: 0 dan 150px e kadar gidecek. 
 		// st > parseInt($( "container_0" ).height()) && parseInt($( "container_0" ).height())+window_height*2 < st
 		// window_height + (st - window_height - parseInt($( ".container_0" ).height()))*(150.0/(window_height*2)))
@@ -573,6 +589,7 @@ function beReadyPage () {
 	$(".container_2_text_part_cont").css("width", window_width);
 	$(".container_2_text_part").css("padding-left", window_width/2-parseInt($( ".container_2_text_part" ).css('width')));
 	$(".top_part_logo").css("padding-left", parseInt($(".contect").css('width')) - parseInt($(".microphone_button_top_a").css('width')));
+	/*
 	ofsets_scroll[0] = $('.c1_main_text_1').offset().top - window_height + parseInt($( ".c1_main_text_1" ).height());
 	ofsets_scroll[1] = $('.c1_cont_text_1').offset().top - window_height + parseInt($( ".c1_cont_text_1" ).height());
 	ofsets_scroll[2] = $('.c1_cont_text_2').offset().top - window_height + parseInt($( ".c1_cont_text_2" ).height());
@@ -583,7 +600,7 @@ function beReadyPage () {
 	ofsets_scroll[7] = $('.c2_cont_text_2').offset().top - window_height + parseInt($( ".c2_cont_text_2" ).height());
 	ofsets_scroll[8] = $('.c2_cont_text_3').offset().top - window_height + parseInt($( ".c2_cont_text_3" ).height());
 	ofsets_scroll[9] = $('.c2_cont_text_4').offset().top - window_height + parseInt($( ".c2_cont_text_4" ).height());
-	
+	*/
 	/*
 	var total_product_card_in_line;
 	var one_card_width = parseInt($( ".product_card" ).width() + parseInt($(".transition_sign").outerHeight() - $(".transition_sign").innerHeight()));
