@@ -307,7 +307,7 @@ $(window).scroll(function(event){
 			.css('oFilter',filterVal)
 			.css('msFilter',filterVal);
 		persVal = 450 - (st / window_height)*400;
-		rotateVal = (st / window_height)*50;
+		rotateVal = (st / window_height)*-50;
 		scaleVal = 1 - (st / window_height)*0.1;
 		$('.container_enter').css({
 			'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -415,7 +415,7 @@ $(window).scroll(function(event){
 				'-o-transform'      : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'transform'         : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)'
 			});
-	}   else if( st < window_height*6 ) {
+	}   else if( st < window_height*6 + 5 ) {
 			persVal = 450 - ((st - window_height*5) / window_height)*400;
 			rotateVal = ((st - window_height*5) / window_height)*-50;
 			scaleVal = 1 - ((st - window_height*5) / window_height)*0.1;
