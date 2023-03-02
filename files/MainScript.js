@@ -64,8 +64,9 @@ $( document ).ready(function() {
 		var window_height = parseInt($( window ).height());
 		var window_width = parseInt($( window ).width());
 		if (is_menu_open) {
-			$(".menu_button_bottom").text("Menu");
+			$(".info_box").text("Menu");
 			$(".navicon_button_click").removeClass('navi_change');
+			//info_box
 			$('.menu_contact').animate({left: '-370px'}, 250);
 			setTimeout(function() { $(".menu_main_cont_2").css("display", "none"); }, 250);
 			$(".close_nav").fadeOut(250);
@@ -73,7 +74,7 @@ $( document ).ready(function() {
 			is_scrolling_locked_menu_nav = false;
 		}
 		else {
-			$(".menu_button_bottom").text("Close");
+			$(".info_box").text("Close");
 			$(".navicon_button_click").addClass('navi_change');
 			$('.menu_contact').animate({left: '0px'}, 250);
 			$(".menu_main_cont_2").css("display", "block");
