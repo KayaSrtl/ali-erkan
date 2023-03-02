@@ -26,7 +26,6 @@ var window_height, window_width;
 var selected_nav_class_number = 0;
 var st;
 var is_mobile_phone = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) ? true : false;
-var swiper_animation_finished = false;
 //http://css3.bradshawenterprises.com/cfimg/#cfimg1
 
 /*$( function() {
@@ -258,7 +257,7 @@ $( document ).ready(function() {
 	
 	beReadyPage();
 	
-	chechLang();
+	//chechLang(); DON'T FORGET TO CHANGE THIS
 	
 	
 	
@@ -331,7 +330,7 @@ $(window).scroll(function(event){
 		//.bar1, .bar2, .bar3 
 	} 	else if( st < window_height*2 ) {
 			persVal = 450 - ((st - window_height) / window_height)*400;
-			rotateVal = ((st - window_height) / window_height)*50;
+			rotateVal = ((st - window_height) / window_height)*-50;
 			scaleVal = 1 - ((st - window_height) / window_height)*0.1;
 			$('.about_main_div').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -354,7 +353,7 @@ $(window).scroll(function(event){
 
 	}	else if( st < window_height*3 ) {
 			persVal = 450 - ((st - window_height*2) / window_height)*400;
-			rotateVal = ((st - window_height*2) / window_height)*50;
+			rotateVal = ((st - window_height*2) / window_height)*-50;
 			scaleVal = 1 - ((st - window_height*2) / window_height)*0.1;
 			$('.advertising_main_div').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -375,7 +374,7 @@ $(window).scroll(function(event){
 			});
 	}   else if( st < window_height*4 ) {
 			persVal = 450 - ((st - window_height*3) / window_height)*400;
-			rotateVal = ((st - window_height*3) / window_height)*50;
+			rotateVal = ((st - window_height*3) / window_height)*-50;
 			scaleVal = 1 - ((st - window_height*3) / window_height)*0.1;
 			$('.website_main_div').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -396,7 +395,7 @@ $(window).scroll(function(event){
 			});
 	}   else if( st < window_height*5 ) {
 			persVal = 450 - ((st - window_height*4) / window_height)*400;
-			rotateVal = ((st - window_height*4) / window_height)*50;
+			rotateVal = ((st - window_height*4) / window_height)*-50;
 			scaleVal = 1 - ((st - window_height*4) / window_height)*0.1;
 			$('.consultancy_main_div').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -418,7 +417,7 @@ $(window).scroll(function(event){
 			});
 	}   else if( st < window_height*6 ) {
 			persVal = 450 - ((st - window_height*5) / window_height)*400;
-			rotateVal = ((st - window_height*5) / window_height)*50;
+			rotateVal = ((st - window_height*5) / window_height)*-50;
 			scaleVal = 1 - ((st - window_height*5) / window_height)*0.1;
 			$('.calender_main_cont').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -427,6 +426,18 @@ $(window).scroll(function(event){
 				'-o-transform'      : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'transform'         : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)'
 			});
+			
+			persVal = 450 - ((st - window_height*5) / window_height)*400;
+			rotateVal = 50 - ((st - window_height*5) / window_height)*50;
+			scaleVal = 0.9 + ((st - window_height*5) / window_height)*0.1;
+			$('.contect_part').css({
+				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
+				'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
+				'-ms-transform'     : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
+				'-o-transform'      : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
+				'transform'         : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)'
+			});
+			
 	}
 	
 	
