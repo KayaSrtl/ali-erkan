@@ -1488,6 +1488,10 @@ input[type="text"] {
 	height: 100%;
 }
 
+.color_change_main_div {
+	color: black !important;
+}
+
 
 .content_main_div {
 	background: linear-gradient(30deg, rgba(255, 255, 255, 1) 0%, rgba(249, 248, 247, 1) 11%, rgba(242, 240, 237, 1) 22%, rgba(242, 240, 237, 1) 33%, rgba(230, 228, 225, 1) 44%, rgba(240, 236, 230, 1) 55%, rgba(235, 228, 218, 1) 66%, rgba(222, 216, 206, 1) 77%, rgba(227, 219, 204, 1) 88%, rgba(227, 219, 199, 1) 100%);
