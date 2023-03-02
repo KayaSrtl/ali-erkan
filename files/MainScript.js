@@ -61,13 +61,14 @@ $( document ).ready(function() {
 	
 	
 	
-	$('.navicon_button_click, .close_nav, .search_part_a, .nav-link').click(function() {
+	$('.navicon_button_click, .close_nav, .search_part_a, .menu_main_cont_2:not(".menu_contact_container")').click(function() {
 		var window_height = parseInt($( window ).height());
 		var window_width = parseInt($( window ).width());
 		if (is_menu_open) {
 			$(".menu_button_bottom").text("Menu");
 			$(".navicon_button_click").removeClass('navi_change');
 			$('.menu_contact').animate({left: '-370px'}, 250);
+			setTimeout(function() { $(".menu_main_cont_2").css("display", "none"); }, 250);
 			$(".close_nav").fadeOut(250);
 			$(".my-search-box").val("");
 			is_scrolling_locked_menu_nav = false;
@@ -76,6 +77,7 @@ $( document ).ready(function() {
 			$(".menu_button_bottom").text("Close");
 			$(".navicon_button_click").addClass('navi_change');
 			$('.menu_contact').animate({left: '0px'}, 250);
+			$(".menu_main_cont_2").css("display", "block");
 			$(".close_nav").fadeIn(250);
 			if (!is_mobile_phone) {
 				$('.my-search-box').focus();
@@ -298,13 +300,26 @@ $(window).scroll(function(event){
 	var st = $(this).scrollTop();
 	
 	if( st < window_height) {
-		var filterVal = 'blur(' + (st / window_height)*10 + 'px)';
+		var filterVal = 'blur(' + (st / window_height)*6 + 'px)';
 		$('.container_enter_image_part')
 			.css('filter',filterVal)
 			.css('webkitFilter',filterVal)
 			.css('mozFilter',filterVal)
 			.css('oFilter',filterVal)
 			.css('msFilter',filterVal);
+		persVal = 450 - (st / window_height)*400;
+		rotateVal = (st / window_height)*50;
+		scaleVal = 1 - (st / window_height)*0.1;
+		$('.container_enter').css({
+			'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
+			'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
+			'-ms-transform'     : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
+			'-o-transform'      : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
+			'transform'         : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)'
+		});
+		
+		
+		//.bar1, .bar2, .bar3 
 	}
 	
 
