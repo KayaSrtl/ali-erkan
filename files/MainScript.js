@@ -25,6 +25,8 @@ var ofsets_scroll = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var window_height, window_width;
 var selected_nav_class_number = 0;
 var st;
+var scroll_state;
+var can_usable = true;
 var is_mobile_phone = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) ? true : false;
 //http://css3.bradshawenterprises.com/cfimg/#cfimg1
 
@@ -36,6 +38,8 @@ $( document ).ready(function() {
 	//$('.top_button').draggable();
 	//do something after document all loaded
 	beReadyPage();
+	scroll_state = parseInt($(window).scrollTop() / window_height);
+	console.log(scroll_state);
 	
 	$( ".trans_click" ).hover(function() {
 		if(!$(this).hasClass('selected'))
@@ -45,9 +49,27 @@ $( document ).ready(function() {
 	});
 	
 	$( ".nav-link" ).click(function() {
-		$('html, body').animate({scrollTop: $(this).attr('id')*window_height}, 400);
+		scroll_state = $(this).attr('id');
+		can_usable = false;
+		if(scroll_state != 6) {
+			$('html, body').animate(
+				{ scrollTop: scroll_state * window_height},
+				400, function() {
+			
+				setTimeout(function() { can_usable = true;}, 10);
+			});
+		} else {
+			$('html, body').animate(
+				{ scrollTop: (scroll_state - 1)*window_height + 1200},
+				400, function() {
+			
+				setTimeout(function() { can_usable = true;}, 10);
+			});
+		}
+		
 	});
-	
+	//$('html, body').animate({scrollTop: scroll_state*window_height}, 400);
+	//$('html, body').animate({scrollTop: (scroll_state - 1)*window_height + 1200}, 400);
 	/*
 	var is_go_top_ani_start = false;
 	$('div.top_button').click(function() {
@@ -290,6 +312,10 @@ var lastScrollTop = 0;
 var menu_state = true;
 var is_text_visible = [false, false, false, false, false, false, false, false, false, false];
 var temp_container_2s_image = window_height;
+var old_scroll_top = 0;
+
+
+
 
 $(window).scroll(function(event){
 	if (is_scrolling_locked_menu_nav || is_scrolling_locked_notifi) {
@@ -298,6 +324,35 @@ $(window).scroll(function(event){
 	}
 	
 	var st = $(this).scrollTop();
+	
+	
+	if ((st > old_scroll_top) && scroll_state != 6 && can_usable) {
+		console.log(st);
+		can_usable = false;
+		scroll_state++;
+		//$('html, body').animate({}, 400);
+		$('html, body').animate(
+			{ scrollTop: scroll_state == 6 ? (scroll_state-1)* window_height + 1200 : scroll_state* window_height},
+			400, function() {
+			
+			setTimeout(function() { can_usable = true;}, 50);
+		});
+	}
+	
+	if ((st < old_scroll_top) && scroll_state && can_usable) {
+		console.log(st);
+		can_usable = false;
+		scroll_state--;
+		//$('html, body').animate({}, 400);
+		$('html, body').animate(
+			{ scrollTop: scroll_state == 6 ? (scroll_state-1)* window_height + 1200 : scroll_state* window_height},
+			400, function() {
+			
+			setTimeout(function() { can_usable = true;}, 50);
+		});
+	}
+	//console.log(st + " " + old_scroll_top + " " + scroll_state);
+	old_scroll_top = st;
 	
 	if( st < window_height) {
 		var filterVal = 'blur(' + (st / window_height)*6 + 'px)';
@@ -406,9 +461,9 @@ $(window).scroll(function(event){
 				'transform'         : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)'
 			});
 			
-			persVal = 450 - ((st - window_height*4) / window_height)*400;
-			rotateVal = 50 - ((st - window_height*4) / window_height)*50;
-			scaleVal = 0.9 + ((st - window_height*4) / window_height)*0.1;
+			persVal = 450 - ((st - window_height*4 ) / window_height)*400;
+			rotateVal = 50 - ((st - window_height*4 ) / window_height)*50;
+			scaleVal = 0.9 + ((st - window_height*4 ) / window_height)*0.1;
 			$('.calender_main_cont').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -416,10 +471,11 @@ $(window).scroll(function(event){
 				'-o-transform'      : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'transform'         : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)'
 			});
-	}   else if( st < window_height*6 + 5 ) {
-			persVal = 450 - ((st - window_height*5) / window_height)*400;
-			rotateVal = ((st - window_height*5) / window_height)*-50;
-			scaleVal = 1 - ((st - window_height*5) / window_height)*0.1;
+	}   else if( st < window_height*5 + 1205) {
+			persVal = 450 - ((st - window_height*5) / 1200)*400;
+			rotateVal = ((st - window_height*5) / 1200)*-15;
+			scaleVal = 1 - ((st - window_height*5) / 1200)*0.1;
+			//console.log((st - window_height*5));
 			$('.calender_main_cont').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -428,9 +484,9 @@ $(window).scroll(function(event){
 				'transform'         : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)'
 			});
 			
-			persVal = 450 - ((st - window_height*5) / window_height)*400;
-			rotateVal = 50 - ((st - window_height*5) / window_height)*50;
-			scaleVal = 0.9 + ((st - window_height*5) / window_height)*0.1;
+			persVal = 450 - ((st - window_height*5) / 1200)*400;
+			rotateVal = 50 - ((st - window_height*5) / 1200)*50;
+			scaleVal = 0.9 + ((st - window_height*5) / 1200)*0.1;
 			$('.contect_part').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -681,6 +737,7 @@ var is_mini_active = false;
 function beReadyPage () {
 	window_height = parseInt($( window ).height());
 	window_width = parseInt($( window ).width());
+	
 	
 	//$(".main_div").css("width", window_width);
 	$(".all_photos").css("width", window_width); 
