@@ -1502,7 +1502,7 @@ input[type="text"] {
 
 
 .calender_main_cont {
-	height: 100vh;
+	height: 1200px;
 	width: 100%;
 	position: relative;
 	display: flex;
