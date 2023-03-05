@@ -1472,11 +1472,14 @@ input[type="text"] {
 
 .c_e_content {
 	display: flex;
+	flex-direction: row;
 }
+
 
 .c_e_text_content {
 	font-size: 20px;
-	
+	margin-right: 20px;
+	margin-left: 20px;
 }
 
 
@@ -2015,6 +2018,24 @@ input[type="text"] {
 		font-size: 35px !important;
 	}
 	
+	.c_e_content {
+		flex-direction: column;
+	}
+	
+	.c_e_text_content {
+		margin-left: 0px !important;
+		margin-right: 0px !important;
+		font-size: 17px !important;
+	}
+	
+	.c_e_header {
+		font-size: 15vw !important;
+	}
+	
+	.calender_header {
+		font-size: 15vw !important;
+	}
+	
 	
 }
 
@@ -2104,9 +2125,9 @@ input[type="text"] {
 	padding-bottom: 12px;
 }
 
-	.whatsapp {
-		background: black;
-	}
+.whatsapp {
+	background: black;
+}
 
       
 
@@ -2120,4 +2141,10 @@ input[type="text"] {
 	.menu_nav {
 		padding: 0px;
 	}
+	
+
+}
+
+@media only screen and (min-height: 750px) {
+
 }
