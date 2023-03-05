@@ -99,7 +99,7 @@ $( document ).ready(function() {
 			$(".info_box").text("Close");
 			$(".navicon_button_click").addClass('navi_change');
 			$('.menu_contact').animate({left: '0px'}, 250);
-			$(".menu_main_cont_2").css("display", "block");
+			$(".menu_main_cont_2").css("display", "flex");
 			$(".close_nav").fadeIn(250);
 			if (!is_mobile_phone) {
 				$('.my-search-box').focus();
