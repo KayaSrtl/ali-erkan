@@ -39,7 +39,7 @@ $( document ).ready(function() {
 	//do something after document all loaded
 	beReadyPage();
 	scroll_state = parseInt($(window).scrollTop() / window_height);
-	console.log(scroll_state);
+	//console.log(scroll_state);
 	
 	$( ".trans_click" ).hover(function() {
 		if(!$(this).hasClass('selected'))
@@ -326,35 +326,33 @@ $(window).scroll(function(event){
 	var st = $(this).scrollTop();
 	
 	
-	if ((st > old_scroll_top) && scroll_state != 6 && can_usable) {
-		console.log(st);
+	/*if ((st > old_scroll_top) && scroll_state != 6 && can_usable) {
+		//console.log(st);
 		can_usable = false;
 		scroll_state++;
 		//$('html, body').animate({}, 400);
 		$('html, body').animate(
-			{ scrollTop: scroll_state == 6 ? (scroll_state-1)* window_height + 1200 : scroll_state* window_height},
+			{ },
 			400, function() {
-			
-			setTimeout(function() { can_usable = true;}, 50);
+			setTimeout(function() { can_usable = true;}, 10);
 		});
 	}
 	
 	if ((st < old_scroll_top) && scroll_state && can_usable) {
-		console.log(st);
+		//console.log(st);
 		can_usable = false;
 		scroll_state--;
 		//$('html, body').animate({}, 400);
 		$('html, body').animate(
-			{ scrollTop: scroll_state == 6 ? (scroll_state-1)* window_height + 1200 : scroll_state* window_height},
+			{},
 			400, function() {
-			
-			setTimeout(function() { can_usable = true;}, 50);
+			setTimeout(function() { can_usable = true;}, 10);
 		});
-	}
-	//console.log(st + " " + old_scroll_top + " " + scroll_state);
+	}*/
+	//console.log($("#main_div_1").offset().top);
 	old_scroll_top = st;
 	
-	if( st < window_height) {
+	if( st < window_height ) {
 		var filterVal = 'blur(' + (st / window_height)*6 + 'px)';
 		$('.container_enter_image_part')
 			.css('filter',filterVal)
