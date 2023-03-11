@@ -41,12 +41,7 @@ $( document ).ready(function() {
 	scroll_state = parseInt($(window).scrollTop() / window_height);
 	//console.log(scroll_state);
 	
-	$( ".trans_click" ).hover(function() {
-		if(!$(this).hasClass('selected'))
-			$(this).addClass('hover_trans_click');
-	}, function() {
-		$(this).removeClass('hover_trans_click');
-	});
+
 	
 	$( ".nav-link" ).click(function() {
 		scroll_state = $(this).attr('id');
@@ -354,7 +349,7 @@ $(window).scroll(function(event){
 	
 	if( st < window_height ) {
 		var filterVal = 'blur(' + (st / window_height)*6 + 'px)';
-		$('.container_enter_image_part')
+		$('#container_enter_image_part')
 			.css('filter',filterVal)
 			.css('webkitFilter',filterVal)
 			.css('mozFilter',filterVal)
@@ -363,7 +358,7 @@ $(window).scroll(function(event){
 		persVal = 450 - (st / window_height)*400;
 		rotateVal = (st / window_height)*-50;
 		scaleVal = 1 - (st / window_height)*0.1;
-		$('.container_enter').css({
+		$('#container_enter').css({
 			'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 			'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 			'-ms-transform'     : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -386,7 +381,7 @@ $(window).scroll(function(event){
 			persVal = 450 - ((st - window_height) / window_height)*400;
 			rotateVal = ((st - window_height) / window_height)*-50;
 			scaleVal = 1 - ((st - window_height) / window_height)*0.1;
-			$('.about_main_div').css({
+			$('#about_main_div').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-ms-transform'     : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -397,7 +392,7 @@ $(window).scroll(function(event){
 			persVal = 450 - ((st - window_height) / window_height)*400;
 			rotateVal = 50 - ((st - window_height) / window_height)*50;
 			scaleVal = 0.9 + ((st - window_height) / window_height)*0.1;
-			$('.advertising_main_div').css({
+			$('#advertising_main_div').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-ms-transform'     : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -409,7 +404,7 @@ $(window).scroll(function(event){
 			persVal = 450 - ((st - window_height*2) / window_height)*400;
 			rotateVal = ((st - window_height*2) / window_height)*-50;
 			scaleVal = 1 - ((st - window_height*2) / window_height)*0.1;
-			$('.advertising_main_div').css({
+			$('#advertising_main_div').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-ms-transform'     : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -419,7 +414,7 @@ $(window).scroll(function(event){
 			persVal = 450 - ((st - window_height*2) / window_height)*400;
 			rotateVal = 50 - ((st - window_height*2) / window_height)*50;
 			scaleVal = 0.9 + ((st - window_height*2) / window_height)*0.1;
-			$('.website_main_div').css({
+			$('#website_main_div').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-ms-transform'     : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -430,7 +425,7 @@ $(window).scroll(function(event){
 			persVal = 450 - ((st - window_height*3) / window_height)*400;
 			rotateVal = ((st - window_height*3) / window_height)*-50;
 			scaleVal = 1 - ((st - window_height*3) / window_height)*0.1;
-			$('.website_main_div').css({
+			$('#website_main_div').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-ms-transform'     : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -440,7 +435,7 @@ $(window).scroll(function(event){
 			persVal = 450 - ((st - window_height*3) / window_height)*400;
 			rotateVal = 50 - ((st - window_height*3) / window_height)*50;
 			scaleVal = 0.9 + ((st - window_height*3) / window_height)*0.1;
-			$('.consultancy_main_div').css({
+			$('#consultancy_main_div').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-ms-transform'     : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -451,7 +446,7 @@ $(window).scroll(function(event){
 			persVal = 450 - ((st - window_height*4) / window_height)*400;
 			rotateVal = ((st - window_height*4) / window_height)*-50;
 			scaleVal = 1 - ((st - window_height*4) / window_height)*0.1;
-			$('.consultancy_main_div').css({
+			$('#consultancy_main_div').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-ms-transform'     : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -462,7 +457,7 @@ $(window).scroll(function(event){
 			persVal = 450 - ((st - window_height*4 ) / window_height)*400;
 			rotateVal = 50 - ((st - window_height*4 ) / window_height)*50;
 			scaleVal = 0.9 + ((st - window_height*4 ) / window_height)*0.1;
-			$('.calender_main_cont').css({
+			$('#calender_main_cont').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-ms-transform'     : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -474,7 +469,7 @@ $(window).scroll(function(event){
 			rotateVal = ((st - window_height*5) / 1200)*-15;
 			scaleVal = 1 - ((st - window_height*5) / 1200)*0.1;
 			//console.log((st - window_height*5));
-			$('.calender_main_cont').css({
+			$('#calender_main_cont').css({
 				'-webkit-transform' : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-moz-transform'    : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
 				'-ms-transform'     : 'perspective(' + persVal + 'em) rotateX(' + rotateVal + 'deg) scale3d(' + scaleVal + ', ' + scaleVal + ', 1)',
@@ -991,23 +986,6 @@ function beReadyPage () {
 	var total_card_height = (parseInt(total_product_card/total_product_card_in_line) < total_product_card/total_product_card_in_line) ? (total_product_card/total_product_card_in_line+1) : (total_product_card/total_product_card_in_line);
 	$(".product_background_gradient").css("height", parseInt($( ".product_top_header" ).height()) + parseInt($( ".product_top_header" ).css('padding-top')) + (parseInt($( ".product_card" ).css('margin-top')) + parseInt($( ".product_card" ).height()))*total_card_height + 100);
 	*/
-	
-	$(".swiper_cont").css("height", window_height);
-	
-	if(window_width < 620) { 
-		$(".mapouter").css("width", window_width - 20);
-		$(".gmap_iframe").css("width", window_width - 20);
-		$(".gmap_canvas").css("width", window_width - 20);
-		document.getElementById('map1').style.width = ((window_width - 20) + "px");
-		document.getElementById('map2').style.width = ((window_width - 20) + "px");
-	} else {
-		$(".mapouter").css("width", 600);
-		$(".gmap_iframe").css("width", 600);
-		$(".gmap_canvas").css("width", 600);
-		document.getElementById('map1').style.width = '600px';
-		document.getElementById('map2').style.width = '600px';
-	}
-	return;
 	
 }
 
