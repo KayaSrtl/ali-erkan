@@ -1272,6 +1272,18 @@ input[type="text"] {
 
 }
 
+.window_container_bottom_5 {
+	position: relative;
+	width: auto;
+	padding: 20px 20px 0px 20px;
+}
+
+.window_container_outer_5  {
+	top: 2700px;
+	left: 20vw;
+
+}
+
 .window_container_logos  {
 	padding: 0px 40px;
 	display: flex;
