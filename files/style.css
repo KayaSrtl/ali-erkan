@@ -920,10 +920,11 @@ background-position: 20%;
 	display: none;
     position: fixed;
     width: 100vw;
+	height: 100vh;
     z-index: 100;
-    top: 100px;
     left: 0px;
     color: black;
+	align-items: center;
 }
 
 .menu_contact {
@@ -1089,7 +1090,7 @@ background-position: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 100%;
   background: none;
   float: left;
 }
@@ -1105,16 +1106,16 @@ input[type="text"] {
   border-radius: 5px;
   border: none;
   outline: none;
-  color: white;
+  color: black;
   background: none;
 }
 
 .search_logo {
 	font-size: 20px;
-	padding: 15px;
-	padding-right: 15px;
-	padding-top: 14px;
-	
+    padding: 37px;
+    padding-right: 15px;
+    padding-top: 11px;
+    color: black;
 }
 
 
@@ -1212,8 +1213,105 @@ input[type="text"] {
 
 .main_div  {
 	left: 0px;
-	width: 100%;
+	width: 100vw;
+	overflow: scroll;
+	height: 3000px;
+}
+
+.window_container_outer {
+	position: absolute;
+	z-index: 6;
+	border-radius: 30px;
+	background: pink;
+	border: solid 7px grey;
 	overflow: hidden;
+}
+
+.window_container_outer_1 {
+	border-radius: 15px;
+	top: 10vh;
+	left: 10vw;
+	height: calc(100% - 14px - 20vh);
+	width: calc(100% - 14px - 20vw);
+}
+
+.window_container_top {
+	position: relative;
+	background-color: white;
+	height: 40px;
+	border-radius: 20px 20px 0px 0px;
+	display: flex;
+	justify-content: flex-end;
+    border-bottom-width: 7px;
+    border-bottom-style: solid;
+    border-bottom-color: grey;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+}
+
+.window_container_bottom {
+	overflow: hidden;
+	height: calc(100% - 42px);
+    width: 100%;
+	position: absolute;
+}
+
+.window_container_top_1 {
+	justify-content: space-between;
+	border-radius: 6px 6px 0px 0px;
+}
+
+.window_container_outer_2 {
+	top: 80vh;
+	left: 60vw;
+	height: 30%;
+	width: 30%;
+
+}
+
+.window_container_logos  {
+	padding: 0px 40px;
+	display: flex;
+	flex-direction: row;
+    align-items: center;
+}
+
+.close_button_icon_outer {
+	border-radius: 20px;
+	border: solid 3px red;
+	height: 20px;
+	width: 20px;
+}
+
+.close_button_icon {
+	position: relative;
+	top: -4px;
+    left: 1px;
+}
+
+.window_icon {
+	margin: 0px 10px;
+	color: black;
+	cursor: pointer;
+}
+
+
+.window_container_outer_3  {
+	top: 150vh;
+	left: 10vw;
+	width: calc(100% - 14px - 20vw);
+	border-radius: 30px;
+}
+
+.window_container_outer_4 {
+	top: 95vh;
+    left: 14vw;
+    height: 25%;
+    width: 30%;
+
 }
 
 .photo_part {
@@ -1429,32 +1527,43 @@ input[type="text"] {
 }
 
 .container_enter {
-	display: block;	
-	position: relative;
-	z-index: 2;
-	height: 100vh;
-	width: 100%;
-	overflow: hidden;
+	display: block;
 }
 
 .container_enter_image_part_cont {
-	height: 100vh;
+	height: 100%;
 	width: 100%;
 	overflow: hidden;
 	position: relative;
 	display: block;
 	z-index: 1;
 	transform: perspective(450em) rotateX(0deg) scale3d(1, 1, 1);
+	background: black;
+	border-radius: 0px 0px 13px 13px;
 }
 
 .container_enter_image_part {
 	height: 100%;
-	width: 100%;
+    width: 100%;
+}
+
+.overlay {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: -moz-radial-gradient(transparent 150px, rgba(0, 0, 0, 1) 150px);
+  background: -webkit-radial-gradient(transparent 150px, rgba(0, 0, 0, 1) 150px);
+  background: -ms-radial-gradient(transparent 150px, rgba(0, 0, 0, 1) 150px);
+  background: -o-radial-gradient(transparent 150px, rgba(0, 0, 0, 1) 150px);
+  pointer-events: none;
+  /* send mouse events beneath this layer */
 }
 
 .container_enter_text_part {
-	color: rgb(255 255 255 / 80%);
-	height: 100vh;
+	color: rgb(0 0 0 / 80%);
+	height: 100%;
 	width: 100%;
 	position: absolute;
 	z-index: 2;
@@ -1466,13 +1575,18 @@ input[type="text"] {
 
 .container_enter_text_part_cont {
 	width: 80%;
+	border-radius: 30px 30px 0px 0px;
+	border: solid 5px white;
+	background-color: rgba(255, 255, 255, 0.2);
 }
 
 
 .c_e_header {
+	color: rgb(0 0 0 / 40%);
 	margin-block-start: 0em;
 	font-size: 120px;
 	text-align: center;
+	background: #ffffffab;
 }
 
 .c_e_content {
@@ -1492,6 +1606,7 @@ input[type="text"] {
 	object-fit: cover;
 	width: 100%;
 	height: 100%;
+	background-color: pink;
 }
 
 .color_change_main_div {
@@ -2040,6 +2155,7 @@ input[type="text"] {
 	.calender_header {
 		font-size: 15vw !important;
 	}
+	
 	.menu_main_cont_2 {
 		justify-content: center;
 	}
@@ -2142,9 +2258,7 @@ input[type="text"] {
 
 @media only screen and (max-height: 750px) {
 	.menu_contact {
-		position: fixed;
 		width: 370px;
-		top: 0px;
 	}
 	
 	.menu_nav {
