@@ -993,16 +993,15 @@ function beReadyPage () {
 		$(".gmap_canvas").css("width", window_width - 40);
 		document.getElementById('map1').style.width = ((window_width - 40) + "px");
 		document.getElementById('map2').style.width = ((window_width - 40) + "px");
-		$(".window_container_outer_5").css("left", (window_width - parseInt($(".window_container_outer_5").css('width')))/2 + 7);
 	} else {
 		$(".mapouter").css("width", 600);
 		$(".gmap_iframe").css("width", 600);
 		$(".gmap_canvas").css("width", 600);
 		document.getElementById('map1').style.width = '600px';
 		document.getElementById('map2').style.width = '600px';
-		$(".window_container_outer_5").css("left", (window_width - parseInt($(".window_container_outer_5").css('width')))/2 + 7);
 		
 	}
+	$(".window_container_outer_5").css("left", (window_width - parseInt($(".window_container_outer_5").css('width')))/2 + 7);
 	
 }
 
