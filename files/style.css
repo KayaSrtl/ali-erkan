@@ -2114,6 +2114,13 @@ input[type="text"] {
 
 
 @media only screen and (max-width: 701px) {
+	.window_container_bottom_5 {
+		padding: 5px 5px 0px 5px;
+	}
+	
+	.window_container_logos {
+		padding: 0px;
+	}
 	.contect_social_header {
 		font-size: 50px;
 		right: 0px;
@@ -2141,7 +2148,7 @@ input[type="text"] {
 	}
 	
 	.social_media_part {
-		right: 10px;
+		left: 10px;
 		bottom: 10px;
 	}
 	
@@ -2200,7 +2207,7 @@ input[type="text"] {
 	}
 	
 	.social_media_part {
-		right: 15px;
+		left: 15px;
 		bottom: 15px;
 	}
 	
@@ -2234,7 +2241,7 @@ input[type="text"] {
 	}
 	
 	.social_media_part {
-		right: 20px;
+		left: 20px;
 		bottom: 20px;
 	}
 	
