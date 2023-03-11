@@ -761,6 +761,7 @@ function beReadyPage () {
 
 	
 	$(".container_2s_image").css("width", window_width);
+	$(".window_container_outer_5").css("left", (window_width - parseInt($(".window_container_outer_5").css('width')))/2);
 	//$("..container_2_cont").css("width", window_width);
 	$(".container_2s_image").css("height", window_height);
 	//$("..container_2_cont").css("height", window_height);
