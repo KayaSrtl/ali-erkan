@@ -987,19 +987,20 @@ function beReadyPage () {
 	var total_card_height = (parseInt(total_product_card/total_product_card_in_line) < total_product_card/total_product_card_in_line) ? (total_product_card/total_product_card_in_line+1) : (total_product_card/total_product_card_in_line);
 	$(".product_background_gradient").css("height", parseInt($( ".product_top_header" ).height()) + parseInt($( ".product_top_header" ).css('padding-top')) + (parseInt($( ".product_card" ).css('margin-top')) + parseInt($( ".product_card" ).height()))*total_card_height + 100);
 	*/
-	$(".window_container_outer_5").css("left", (window_width - parseInt($(".window_container_outer_5").css('width')))/2 + 7);
 	if(window_width < 654) { 
 		$(".mapouter").css("width", window_width - 40);
 		$(".gmap_iframe").css("width", window_width - 40);
 		$(".gmap_canvas").css("width", window_width - 40);
 		document.getElementById('map1').style.width = ((window_width - 40) + "px");
 		document.getElementById('map2').style.width = ((window_width - 40) + "px");
+		$(".window_container_outer_5").css("left", (window_width - parseInt($(".window_container_outer_5").css('width')))/2 + 7);
 	} else {
 		$(".mapouter").css("width", 600);
 		$(".gmap_iframe").css("width", 600);
 		$(".gmap_canvas").css("width", 600);
 		document.getElementById('map1').style.width = '600px';
 		document.getElementById('map2').style.width = '600px';
+		$(".window_container_outer_5").css("left", (window_width - parseInt($(".window_container_outer_5").css('width')))/2 + 7);
 		
 	}
 	
@@ -1059,3 +1060,4 @@ function changeImgg() {
 
 setTimeout(function() { beReadyPage();}, 200);
 setTimeout(function() { beReadyPage();}, 500);
+setTimeout(function() { beReadyPage();}, 1000);
