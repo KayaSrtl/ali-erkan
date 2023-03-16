@@ -1221,13 +1221,27 @@ input[type="text"] {
 .window_container_outer {
 	position: absolute;
 	z-index: 6;
-	border-radius: 30px;
 	background: pink;
-	border: solid 7px grey;
+	border-radius: 30px;
+	border: 45px solid transparent;
+	border-image: url(photos/border_png_3.png) 30% round;
+	/*background-origin: border-box;
+	background-clip: content-box, border-box;*/
+	
+}
+
+.window_container_inner {
 	overflow: hidden;
+	position: relative;
+	height: calc(100% + 80px);
+	width: calc(100% + 80px);
+	top: -40px;
+	left: -40px;
+	border-radius: 30px;
 }
 
 .window_container_outer_1 {
+	background: transparent;
 	border-radius: 15px;
 	top: 10vh;
 	left: 10vw;
@@ -1239,11 +1253,12 @@ input[type="text"] {
 	position: relative;
 	background-color: white;
 	height: 40px;
-	border-radius: 20px 20px 0px 0px;
 	display: flex;
+    border-bottom-right-radius: 2% 18%;
+    border-bottom-left-radius: 10% 15%;
+	border-width: 3px;
 	justify-content: flex-end;
-    border-bottom-width: 7px;
-    border-bottom-style: solid;
+    border-bottom-style: double;
     border-bottom-color: grey;
     border-image-source: initial;
     border-image-slice: initial;
