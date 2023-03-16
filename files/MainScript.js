@@ -41,7 +41,27 @@ $( document ).ready(function() {
 	scroll_state = parseInt($(window).scrollTop() / window_height);
 	//console.log(scroll_state);
 	
-
+ //window_close_button_outer_1 / window_icon
+ 
+ 	$( ".window_icon" ).click(function() {
+		var id_of_window_icon = $(this).attr('id');
+		if(scroll_state != 6) {
+			$('html, body').animate(
+				{ scrollTop: scroll_state * window_height},
+				400, function() {
+			
+				setTimeout(function() { can_usable = true;}, 10);
+			});
+		} else {
+			$('html, body').animate(
+				{ scrollTop: (scroll_state - 1)*window_height + 1200},
+				400, function() {
+			
+				setTimeout(function() { can_usable = true;}, 10);
+			});
+		}
+		
+	});
 	
 	$( ".nav-link" ).click(function() {
 		scroll_state = $(this).attr('id');
