@@ -1224,7 +1224,8 @@ input[type="text"] {
 	background: pink;
 	border-radius: 30px;
 	border: 45px solid transparent;
-	border-image: url(photos/border_png_3.png) 30% inherit;
+	border-image: url(photos/border_png_3.png) 30%;
+	border-image-repeat: inherit;
 	/*background-origin: border-box;
 	background-clip: content-box, border-box;*/
 	
